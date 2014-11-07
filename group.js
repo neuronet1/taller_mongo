@@ -103,3 +103,31 @@ command = {
 cursor = db.solicitudes.aggregate(command);
 printcursor('Los valores de los agregados son:', cursor);
 
+
+
+// ••••••••••••••••••••••••••••••••••••••••••••••••••••••••••••••
+// Obtiene el contador, máximo, mínimo y promedio del campo itot
+// agrupado por el nombre del cliente
+// ••••••••••••••••••••••••••••••••••••••••••••••••••••••••••••••
+
+command = {
+   $group: {
+      "_id": "$nomClien",
+      "cuantos": {
+         "$sum":1
+      },
+      "promedio": {
+         "$avg":"$itot"
+      },
+      "maximo": {
+         "$max":"$itot"
+      },
+      "minimo": {
+         "$min":"$itot"
+      }
+   }
+};
+
+cursor = db.solicitudes.aggregate(command);
+printcursor('Los valores de los agregados son:', cursor);
+
