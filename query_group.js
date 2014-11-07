@@ -1,18 +1,8 @@
 var command = null;
 var cursor = null;
 
-conn = new Mongo('127.0.0.1:27017');
-db = conn.getDB('romaga');
+load('util.js');
 
-
-var printcursor = function(message,cursor) {
-   print('\n');
-   print(message);
-
-   while( cursor.hasNext() ) {
-      printjson( cursor.next() );
-   }
-};
 
 // ••••••••••••••••••••••••••••••••••••••••••••••••••••••••••••••
 // Obtiene el número de solicitudes utilizando sum
@@ -131,3 +121,19 @@ command = {
 cursor = db.solicitudes.aggregate(command);
 printcursor('Los valores de los agregados son:', cursor);
 
+// ••••••••••••••••••••••••••••••••••••••••••••••••••••••••••••••
+// Sumariza un elemento anidado
+// agrupado por el sku
+// ••••••••••••••••••••••••••••••••••••••••••••••••••••••••••••••
+
+var command = {
+   $group : {
+      "_id": "$sku",
+      "promedio": {
+         "$avg": "$item.qty"
+      }
+   }
+};
+
+cursor = db.sample2.aggregate(command);
+printcursor('El promedio de el campo qty es', cursor);

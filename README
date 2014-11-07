@@ -1,2 +1,13 @@
-Scripting mongo
-http://docs.mongodb.org/manual/tutorial/write-scripts-for-the-mongo-shell/
+Limitaciones aggregation
+version 2.4
+    Max size return document 16MB
+    Memory limit 10%
+
+
+Good practice
+    check ok return field, if doesnt exist then it was an error
+
+
+Referencias
+    Scripting mongo
+    http://docs.mongodb.org/manual/tutorial/write-scripts-for-the-mongo-shell/

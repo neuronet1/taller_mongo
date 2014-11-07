@@ -1,1 +1,1 @@
-mongo 127.0.0.1/romaga group.js
+mongo 127.0.0.1/romaga query_skip.js
