@@ -1,0 +1,6 @@
+//print(db.getCollectionNames());
+//db.adminCommand('listDatabases');
+
+
+db.solicitudes.find().sort({itot:1}).pretty()
+
