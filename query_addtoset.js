@@ -1,6 +1,3 @@
-/**
- * Created by samuelzv on 7/11/14.
- */
 var command = null;
 var cursor = null;
 

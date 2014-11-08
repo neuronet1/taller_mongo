@@ -1,7 +1,3 @@
-/**
- *
- * Created by samuelzv on 7/11/14.
- */
 //NOTAS
 // Si envias un negativo en el skip te va a lanzar un error
 // el skip debe cero o un entero positivo

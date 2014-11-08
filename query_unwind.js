@@ -1,6 +1,10 @@
-//NOTAS
-// Si envias un cero en el limite te va a lanzar un error
-// el limite debe ser un entero positivo
+/*
+ * El valor de unwind debe ser un array, en caso contrario
+ * se lanzará una excepción
+ *
+ * Si el campo no existe no hay problema solo se regresa
+ * un arreglo vacio, pero si existe este debe ser un arreglo
+ */
 
 var command = null;
 var cursor = null;
@@ -9,14 +13,13 @@ load('util.js');
 
 
 // ••••••••••••••••••••••••••••••••••••••••••••••••••••••••••••••
-// Obtiene los primeros tres elementos
+// Desagrega el nombre con cada color
 // ••••••••••••••••••••••••••••••••••••••••••••••••••••••••••••••
+
 command = {
-    $limit: 3
+    $unwind:"$colores"
 };
 
-cursor = db.conductores.aggregate([command]);
-
-printcursor('Muestra los primeros 3 conductores', cursor);
-
+cursor = db.elementos.aggregate([command]);
+printcursor('El nombre con el color desagregados', cursor);
 

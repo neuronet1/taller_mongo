@@ -1,7 +1,3 @@
-//NOTAS
-// Si envias un cero en el limite te va a lanzar un error
-// el limite debe ser un entero positivo
-
 var command = null;
 var cursor = null;
 
@@ -9,14 +5,17 @@ load('util.js');
 
 
 // ••••••••••••••••••••••••••••••••••••••••••••••••••••••••••••••
-// Obtiene los primeros tres elementos
+// Solo obten el nombre del cliente
 // ••••••••••••••••••••••••••••••••••••••••••••••••••••••••••••••
+
 command = {
-    $limit: 3
+    $project : {
+        "nomClien":1
+    }
 };
+// Tambien le indicamos que el id no lo muestre
+command.$project._id = 0;
 
-cursor = db.conductores.aggregate([command]);
-
-printcursor('Muestra los primeros 3 conductores', cursor);
-
+cursor = db.solicitudes.aggregate([command]);
+printcursor('Solo el nombre del cliente', cursor);
 
