@@ -1,1 +1,1 @@
-mongo 127.0.0.1/romaga query_project.js
+mongo 127.0.0.1/romaga query_pipeline.js

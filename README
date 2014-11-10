@@ -7,6 +7,13 @@ version 2.4
 Good practice
     check ok return field, if doesnt exist then it was an error
 
+The index only can be used before any document transformation happens
+(before $group, $project, $unwind)
+this means than the indexes are only useful when they are to the left of
+any group, project or unwind.
+If you need to sort do it early at the pipeline
+
+
 
 Referencias
     Scripting mongo
