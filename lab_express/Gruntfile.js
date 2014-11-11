@@ -1,5 +1,5 @@
 module.exports = function(grunt) {
-    var appfiles = ['*.js', 'lab_express/*.js'];
+    var appfiles = ['*.js' ];
 
     grunt.initConfig({
         jshint: {
@@ -7,14 +7,10 @@ module.exports = function(grunt) {
         },
         watch: {
             files: appfiles,
-            tasks: ['jshint','exec']
-        },
-        exec: {
-            run_script: './run.sh'
+            tasks: ['jshint']
         }
     });
 
     grunt.loadNpmTasks('grunt-contrib-jshint');
     grunt.loadNpmTasks('grunt-contrib-watch');
-    grunt.loadNpmTasks('grunt-exec');
 };

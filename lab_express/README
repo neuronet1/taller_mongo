@@ -1,0 +1,4 @@
+Error:
+Error: Most middleware (like cookieParser) is no longer bundled with Express and must be installed separately
+
+http://stackoverflow.com/questions/23169509/mongodb-session-store-in-expressjs-4
